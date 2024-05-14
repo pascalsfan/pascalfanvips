@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pascal Fans ViP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* Loader styles */
+    .loader {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Hide loader initially */
+    .loader.hidden {
+      display: none;
+    }
+  </style>
+<body>
+   
+  <div class="grid"></div>
+  <center><button id="load-more">Load More</button>
+  <button id="load-vip">HIDDEN</button>
+  <select id="sort-select">
+    <option value="asc">Sort A-Z</option>
+    <option value="desc">Sort Z-A</option>
+  </select></center>
+ 
+  
+  <template id="card-template">
+    <div class="card">
+      <div class="header">
+        <img class="header-img skeleton" src="" />
+        <div class="title" data-title>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text"></div>
+        </div>
+      </div>
+      <h3>Membership Status</h3>
+      <button class="btn " data-status>
+        <div class="skeleton"></div>
+      </button>
+     <div>
+        <h3>Country: 
+        <div class="ok" data-body>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+           
+          </div>
+        </h3>
+        <h3>Membership Level: <span> VIP</span></h3>
+
+     </div>
+      
+    </div>
+  </template>
+
+  <!-- <script>
+    const grid = document.querySelector('.grid')
+    const cardTemplate = document.getElementById('card-template')
+    for (let i = 0; i < 10; i++) {
+      grid.append(cardTemplate.content.cloneNode(true))
+    }
+
+    fetch("/post.json")
+      .then(res => res.json())
+      .then(posts => {
+        grid.innerHTML = ''
+        posts.forEach(post => {
+          const div = cardTemplate.content.cloneNode(true)
+          div.querySelector('.header-img').setAttribute('src', post.image)
+          div.querySelector('[data-title]').textContent = post.title
+          div.querySelector('[data-body]').textContent = post.body
+          div.querySelector('[data-status]').textContent = post.status
+         
+          grid.append(div)
+        })
+    })
+  </script> -->
+
+  <script>
+    const grid = document.querySelector('.grid')
+    const cardTemplate = document.getElementById('card-template')
+    let postsData = []; // To store all the posts data
+    let visiblePosts = 0; // To keep track of visible posts
+
+    const loadMoreButton = document.getElementById('load-more');
+    const loadVipButton = document.getElementById('load-vip');
+    const sortSelect = document.getElementById('sort-select');
+    const loader = document.querySelector('.loader');
+
+    function renderPosts(posts) {
+      grid.innerHTML = '';
+      posts.slice(0, visiblePosts).forEach(post => {
+        const div = cardTemplate.content.cloneNode(true);
+        div.querySelector('.header-img').setAttribute('src', post.image);
+        div.querySelector('[data-title]').textContent = post.title;
+        div.querySelector('[data-body]').textContent = post.body;
+        div.querySelector('[data-status]').textContent = post.status
+        grid.append(div);
+      });
+    }
+
+    function loadMore() {
+      visiblePosts += 10; // Increase by 10 posts
+      renderPosts(postsData);
+    }
+
+    function loadVip() {
+      const vipPosts = postsData.filter(post => post.vip);
+      renderPosts(vipPosts);
+    }
+
+    function sortPosts(order) {
+      postsData.sort((a, b) => {
+        if (order === 'asc') {
+          return a.title.localeCompare(b.title);
+        } else {
+          return b.title.localeCompare(a.title);
+        }
+      });
+      renderPosts(postsData);
+    }
+
+    loadMoreButton.addEventListener('click', loadMore);
+    loadVipButton.addEventListener('click', loadVip);
+
+    sortSelect.addEventListener('change', () => {
+      const order = sortSelect.value;
+      sortPosts(order);
+    });
+
+    fetch("/post.json")
+      .then(res => res.json())
+      .then(posts => {
+        postsData = posts;
+        loadMore(); // Initially load 10 posts
+        loader.classList.add('hidden'); // Hide loader after data is loaded
+      });
+  </script>
+  <script>
+    alert("Welcome to Pascal Fans VIPs! Where passion meets excellence, and every fan is a VIP. Dive into the world of Pascal with us and discover the extraordinary!")
+  </script>
+</body>
+</html>
