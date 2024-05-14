@@ -434,7 +434,7 @@
     {
         "userId": 1,
         "id": 55,
-        "image" : "./vips/Barb Crispen.   USA.jpg",
+        "image" : "./vips/Barb Crispen.   USA.JPG",
         "title": "Barb Crispen",
         "body": " USA",
         "status": "Active"
@@ -458,7 +458,7 @@
     {
         "userId": 1,
         "id": 58,
-        "image" : "./vips/MCKNIGHT GWENDOLYN ANN.       USA 🇺🇸.jpg",
+        "image" : "./vips/MCKNIGHT GWENDOLYN ANN.       USA 🇺🇸.JPG",
         "title": "MCKNIGHT GWENDOLYN ANN",
         "body": "  USA",
         "status": "Active"
