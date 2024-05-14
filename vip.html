@@ -145,7 +145,7 @@
       sortPosts(order);
     });
 
-    fetch("/post.json")
+    fetch("../post.json")
       .then(res => res.json())
       .then(posts => {
         postsData = posts;
