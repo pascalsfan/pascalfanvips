@@ -7,283 +7,127 @@
  <link rel="stylesheet" type="text/css" href="">
  <style>
 
-css 
-.navbar-brand img { 
-  margin-right: 5px; 
-} 
- 
-.navbar-nav .nav-link { 
-  padding-right: 15px; 
-}
-body {
-    margin: 0;
-    font-family: 'Helvetica', 'Arial', sans-serif;
+.skeleton {
+    opacity: .7;
+    animation: skeleton-loading 1s linear infinite alternate;
   }
-
-  .hero-image {
-    background-image: url("https://i.pinimg.com/564x/f9/82/ec/f982ecc1c11b9df8e6970e79f8698578.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 500px;
-  }
-
-  .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
+  
+  .skeleton-text {
     width: 100%;
+    height: .5rem;
+    margin-bottom: .25rem;
+    border-radius: .125rem;
   }
-
-  .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
+  
+  .skeleton-text:last-child {
+    margin-bottom: 0;
+    width: 80%;
   }
-
-  .hero-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-button {
-    margin-right: 16px;
-    padding: 12px 24px;
-    border: 1px solid #fff;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  .hero-button:hover {
-    background-color: #fff;
-    color: #000;
-  }
-
-  .hero-button-orange {
-    background-color: #ee0d20;
-    border-color: #ff6600;
-  }
-
-  .hero-button-orange:hover {
-    background-color: #fff;
-    color: #ff6600;
-  }
-
-  @media (max-width: 768px) {
-    .hero-content {
-      font-size: 18px;
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-color: hsl(200, 20%, 70%);
     }
-
-    .hero-buttons {
-      flex-direction: column;
-      align-items: flex-start;
+  
+    100% {
+      background-color: hsl(200, 20%, 95%);
     }
-
-    .hero-button {
-      margin-bottom: 16px;
-    }
-
   }
-
-  .movie-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-    max-width: 300px;
-    text-align: center;
-  }
-
-  .movie-card img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-
-  .watch-now-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #dd0e29;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-
-  .watch-now-btn:hover {
-    background-color: #0056b3;
-    color: white;
-    text-decoration: none;
-  }
-  .movies-container{
-    background-color: #f4f4f4;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-  }
-  @media (max-width: 768px) {
-    .movies-container{
-        background-color: #f4f4f4;
-    
-        display: flex;
-        flex-direction:  column;
-        align-items: center;
-    }
-
-  }
-  .trending{
-    padding: 20px;
-    
-  }
- .tr{
-    font-weight: 900;
-    color: #dd0e29;
-
-  }
-  h2{
-    font-weight: 700;
-    color:#0056b3;
-  }
-  .about-content{
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  .about-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 900px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-  }
-
-  .about-text {
-    flex: 1;
-    padding-right: 20px;
-  }
-
-  .about-image {
-    flex: 1;
-    text-align: center;
-  }
-
-  .about-image img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-
-  .read-more-btn {
-    display: block;
-    padding: 10px 20px;
-    margin-top: 15px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #ff4747;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-  }
-  #become{
-    background-color: red;
-    width: 230px;
-    padding: 10px;
-    height: 45px;
+  
+  
+  
+  #load-more{
+    width: 150px;
+    padding: 8px;
+    background-color: rgb(128, 4, 0);
     font-weight: bolder;
+    height: 35px;
     color: white;
     border: none;
-    border-radius: 10px;
-
-  }
-
-  .read-more-btn:hover {
-    background-color: #d23232;
-  }
-  @media (max-width: 768px) {
-    .about-container {
-        display: flex;
-        flex-direction: column;
-      
- 
-       
-  
-      }
-      .about-image{
-        padding: 5px;
-      }
-
-  }
-  .vip-card {
-    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-    max-width: 300px;
-    text-align: center;
-  }
 
-  .vip-card img {
+  }
+  #load-vip{
     width: 150px;
-
-    border-radius: 50%;
-    margin-bottom: 15px;
+    padding: 8px;
+    background-color: rgb(94, 119, 3);
+    font-weight: bolder;
+    height: 35px;
+    color: white;
+    border: none;
+    border-radius: 8px;
   }
-  .vip-card h2{
-    font-size: 30px;
+  #sort-select{
+    background-color: green;
+    color: white;
+    width: 150px;
+    padding: 8px;
+    height: 35px;
   }
-
-  .verified-badge {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 14px;
-    margin-top: 10px;
+  
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 1rem;
+    overflow: hidden;
   }
-  .containes{
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+  
+  .card {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    padding: 16px;
+    border-radius: 4px;
+    display: flex   ;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
   }
-  .image-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-    max-width: 300px;
-    text-align: center;
+  
+  .header {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
   }
-
-  .image-card img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 15px;
+  h3{
+    color: red;
   }
-
-  .card-title {
-    font-size: 20px;
+  span{
+    color: blue;
+  }
+  .btn{
+    background-color: rgb(2, 88, 20);
+    color: white;
+    border: none;
+    width: 100px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .ok{
+    font-size: 22px;
+    font-weight: 600;
+    color: blue;
+  }
+  .header-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    border: 2px solid green;
+  }
+  
+  .title {
     font-weight: bold;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    word-wrap: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex-grow: 1;
   }
  </style>
   <title>PascalFan Club - Movie Fans</title> 
