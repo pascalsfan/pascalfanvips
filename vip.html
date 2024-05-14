@@ -145,7 +145,7 @@
       sortPosts(order);
     });
 
-    fetch("/post.json")
+    fetch("https://pascalsfan.github.io/pascalfanvips/post.json")
       .then(res => res.json())
       .then(posts => {
         postsData = posts;
